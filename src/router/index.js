@@ -13,9 +13,6 @@ const routre = new Router({
       path: "/reg",
       name: "Reg",
       component: () => import("../page/reg"),
-      meta: {
-        isShow: true,
-      },
     },
     {
       path: "/login",
@@ -26,27 +23,42 @@ const routre = new Router({
       path: "/home",
       name: "Home",
       component: () => import("../page/home"),
+      meta: {
+        isShow: true,
+      },
     },
     {
       path: "/classify",
       name: "Classify",
       component: () => import("../page/classify"),
+      meta: {
+        isShow: true,
+      },
     },
     {
       path: "/jingxi",
       name: "Jingxi",
       component: () => import("../page/jingxi"),
+      meta: {
+        isShow: true,
+      },
     },
     {
       path: "/cart",
       name: "Cart",
       component: () => import("../page/cart"),
+      meta: {
+        isShow: true,
+      },
     },
 
     {
       path: "/mine",
       name: "Mine",
       component: () => import("../page/mine"),
+      meta: {
+        isShow: true,
+      },
     },
     {
       path: "/secondsearch",

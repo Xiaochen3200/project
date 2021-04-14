@@ -1,22 +1,23 @@
 <template>
-  <div class="secondsearch">
+  <div class="firstsearch">
     <Navbar>
       <van-icon
-        name="arrow-left"
+        name="wap-nav"
         color="#1989fa"
-        size="30"
+        size="35"
         slot="left"
-        @click="goBack"
+        @click="fenlei"
       />
       <van-search
         v-model="value"
         placeholder="请输入搜索关键词"
         slot="center"
         shape="round"
+        @focus="secondsearch"
       />
 
       <van-button type="primary" :to="{ name: 'Login' }" slot="right" block
-        >搜索</van-button
+        >登录</van-button
       >
     </Navbar>
   </div>
@@ -39,8 +40,11 @@ export default {
   watch: {},
 
   methods: {
-    goBack() {
-      this.$router.push({ name: "Home" });
+    secondsearch() {
+      this.$router.push({ name: "Secondsearch" });
+    },
+    fenlei() {
+      this.$router.push({ name: "Fenlei" });
     },
   },
   //生命周期 - 创建完成（可以访问当前this实例）
@@ -55,20 +59,25 @@ export default {
 };
 </script>
 <style scoped>
+.firstsearch {
+  height: 44px;
+  background: #ff4500;
+}
 .nav-bar {
   box-shadow: 0 1px 1px rgba(100, 100, 100, 0.1);
 }
 .van-search {
   height: 44px;
+  background: #ff4500;
 }
-.van-icon-arrow-left {
+.van-icon-wap-nav {
   display: block;
   text-align: center;
   line-height: 44px;
 }
 .van-button--normal {
   border: none;
-  background: #fff;
+  background: #ff4500;
   color: #333;
   font-size: 15px;
 }

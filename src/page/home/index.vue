@@ -1,10 +1,18 @@
 <template>
-  <div class="home">首页</div>
+  <div class="home">
+    <Firstearch></Firstearch>
+    <Swiper></Swiper>
+  </div>
 </template>
 
 <script>
+import Firstearch from "../home/search/firstsearch";
+import Swiper from "../home/swiper/index";
 export default {
-  components: {},
+  components: {
+    Firstearch,
+    Swiper,
+  },
   data() {
     return {};
   },
