@@ -10,43 +10,21 @@
 export default {
   name:'SideBar',
   props:[
-    "bigbox"
+    "shopingname"
   ],
   data() {
     return {
       activeKey:"",
-      shopingname:[]
     };
-  },
+  },  
   methods: {
-    async onload(){
-      console.log(
-        1
-      );
-    let newArr={}
-    await this.bigbox.forEach((v,i) => {
-        console.log(v.productCategory.name);
-        newArr[v.productCategory.name]= v.productCategory.name[i]
-      });
-      console.log(newArr);
-      for(let i in newArr){
-        console.log(i);
-        this.shopingname.push(i)
-      }
-      // console.log(this.shopingname);
-
-    },
     onChange(index) {
-     console.log(index,);
+     console.log(index);
     },
     itemcliick(value){
       this.$emit("vuelname",value)
-      console.log(value);
     }
   },
-  updated(){
-      this.onload(1)  
-    }
 }
 </script>
 

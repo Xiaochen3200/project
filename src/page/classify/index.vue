@@ -10,13 +10,13 @@
         <div id="categoryBody" class="category-viewport category-categoryNewUi">
           <div id="rootList" class="jd-category-tab">
             <div style="overflow-y:auto;height: 475px;" id="category3">
-              <side-bar v-bind:bigbox="shoping"  @vuelname="sideclick"></side-bar>
+              <side-bar v-bind:shopingname="shopingname"  @vuelname="sideclick"></side-bar>
             </div>
           </div>
           <div class="jd-category-content">
             <div id="branchScroll" style="overflow:hidden;" class="jd-category-content-wrapper">
               <div id="branchList" style="overflow-y: auto;height: 475px;">
-                <grid-item v-bind:bigbox="shoping" :itemname="itemname"></grid-item>
+                <grid-item v-bind:bigbox="shopingfenlei" :itemname="itemname"></grid-item>
               </div>
             </div>
           </div>
@@ -36,6 +36,8 @@ export default {
   data() {
     return {
       shoping:[],
+      shopingname:[],
+      shopingfenlei:[],
       per:500,
       itemname:"",
     };
@@ -47,22 +49,38 @@ export default {
 
   methods: {
     async reqClssfiy() {
-      console.log(1);
       const result = await reqClssfiy(
         {
           per:this.per,
         }
-      );
+      )
+      let newArr={}
+      result.data.products.forEach((v,i)=>{
+        newArr[v.productCategory.name]= v.productCategory.name[i]
+      })
+      for(let i in newArr){
+        this.shopingname.push(i)
+      }
       this.shoping = result.data.products;
     },
     sideclick(value){
-      console.log(1234556,value);
+      console.log("点击了"+value);
       this.itemname=value
+      // console.log(this.shoping,value);
+      let newname=[]
+      this.shoping.forEach((v,)=>{
+        // console.log(v.productCategory.name,i);
+        if(v.productCategory.name===value){
+          newname.push(v)
+        }
+      })
+      this.shopingfenlei=newname
+      console.log(this.shopingfenlei);
     }
   },
   created(){
     this.reqClssfiy()
-  }
+  },
 };
 </script>
 <style scoped>
