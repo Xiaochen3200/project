@@ -122,6 +122,7 @@ export default {
       if (result.data.code != "error") {
         Toast.success("登陆成功");
         setToken(result.data.token);
+        localStorage.setItem("username", this.username)
         this.$router.push("/");
       }
     },

@@ -25,13 +25,7 @@ export default {
     }
   },
   methods:{
-    onloadstart(){
-      console.log(this.bigbox);
-    }
   },
-  updated(){
-    this.onloadstart(1)  
-  }
 }
 </script>
 
