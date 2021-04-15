@@ -65,6 +65,11 @@ const routre = new Router({
       name: "Secondsearch",
       component: () => import("../page/home/search/secondsearch"),
     },
+    {
+      path: "/details",
+      name: "Details",
+      component: () => import("../page/details"),
+    },
 
     // ---------------------以上为主路由，请勿操作--------------------------
 

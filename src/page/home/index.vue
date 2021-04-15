@@ -11,6 +11,9 @@
     <Seckill></Seckill>
     <!-- 潮流音乐 -->
     <Learn></Learn>
+    <!-- 商品列表 -->
+    <Products></Products>
+    <Gotop></Gotop>
   </div>
 </template>
 
@@ -21,6 +24,9 @@ import Productclassify from "../home/productclassify/index";
 import Seckill from "../home/seckill/index";
 import Advertising from "../home/advertising/index";
 import Learn from "../home/learn/index";
+import Products from "../home/products/index";
+// 回到顶部
+import Gotop from "../../components/goTop/index";
 export default {
   components: {
     Firstearch,
@@ -29,6 +35,8 @@ export default {
     Productclassify,
     Seckill,
     Learn,
+    Products,
+    Gotop,
   },
   data() {
     return {};
