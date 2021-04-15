@@ -65,13 +65,43 @@ const routre = new Router({
       name: "Secondsearch",
       component: () => import("../page/home/search/secondsearch"),
     },
-
-    // ---------------------以上为主路由，请勿操作--------------------------
-    // 商品详情页路由
     {
       path: "/details",
       name: "Details",
       component: () => import("../page/details"),
+    },
+
+    // ---------------------以上为主路由，请勿操作--------------------------
+
+    //我的跳转待付款
+    {
+      path: "/orders",
+      name: "Orders",
+      component: () => import("../page/mine/orders.vue"),
+    },
+    //我的跳转地址管理
+    {
+      path: "/site",
+      name: "Site",
+      component: () => import("../page/mine/site.vue"),
+    },
+    //我的跳转售后管理
+    {
+      path: "/sale",
+      name: "Sale",
+      component: () => import("../page/mine/sale.vue"),
+    },
+    //我的跳转账户设置
+    {
+      path: "/install",
+      name: "Install",
+      component: () => import("../page/mine/install.vue"),
+    },
+    //我的跳转添加地址
+    {
+      path: "/addsite",
+      name: "Addsite",
+      component: () => import("../page/mine/addsite.vue"),
     },
   ],
 
