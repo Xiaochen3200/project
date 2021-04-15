@@ -4,7 +4,8 @@ Vue.use(Router);
 
 const routre = new Router({
   mode: "hash",
-  routes: [{
+  routes: [
+    {
       path: "/",
       redirect: "/home",
     },
@@ -66,6 +67,12 @@ const routre = new Router({
     },
 
     // ---------------------以上为主路由，请勿操作--------------------------
+    // 商品详情页路由
+    {
+      path: "/details",
+      name: "Details",
+      component: () => import("../page/details"),
+    },
   ],
 
   linkActiveClass: "active",
