@@ -15,13 +15,22 @@
 export default {
   name:"GrideItem",
   props:[
-    "bigbox"
+    "bigbox",
+    "itemname"
   ],
   data(){
     return{
       img:[],
       name:[]
     }
+  },
+  methods:{
+    onloadstart(){
+      console.log(this.bigbox);
+    }
+  },
+  updated(){
+    this.onloadstart(1)  
   }
 }
 </script>
@@ -31,4 +40,4 @@ export default {
     flex: 1;
     overflow-y: auto;
   }
-</style>
+</style>  

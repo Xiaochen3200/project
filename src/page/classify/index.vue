@@ -10,13 +10,13 @@
         <div id="categoryBody" class="category-viewport category-categoryNewUi">
           <div id="rootList" class="jd-category-tab">
             <div style="overflow-y:auto;height: 475px;" id="category3">
-              <side-bar v-bind:bigbox="shoping"></side-bar>
+              <side-bar v-bind:bigbox="shoping"  @vuelname="sideclick"></side-bar>
             </div>
           </div>
           <div class="jd-category-content">
             <div id="branchScroll" style="overflow:hidden;" class="jd-category-content-wrapper">
               <div id="branchList" style="overflow-y: auto;height: 475px;">
-                <grid-item v-bind:bigbox="shoping"></grid-item>
+                <grid-item v-bind:bigbox="shoping" :itemname="itemname"></grid-item>
               </div>
             </div>
           </div>
@@ -36,8 +36,8 @@ export default {
   data() {
     return {
       shoping:[],
-      page:11,
-      per:500
+      per:500,
+      itemname:"",
     };
   },
   //监听属性 类似于data概念
@@ -51,12 +51,13 @@ export default {
       const result = await reqClssfiy(
         {
           per:this.per,
-          // page:this.page
         }
       );
-      // console.log(result);
       this.shoping = result.data.products;
-      // console.log(this.shoping);
+    },
+    sideclick(value){
+      console.log(1234556,value);
+      this.itemname=value
     }
   },
   created(){

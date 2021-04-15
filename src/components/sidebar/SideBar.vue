@@ -1,7 +1,7 @@
 <template>
   <div id="SideBar">
-    <van-sidebar v-model="activeKey" @change="onChange">
-      <van-sidebar-item v-for="value in shopingname" :key="value.id" :title="value"/>
+    <van-sidebar v-model="activeKey" @change="onChange" >
+      <van-sidebar-item v-for="value in shopingname" :key="value.id" :title="value" @click="itemcliick(value)"/>
     </van-sidebar>
   </div>
 </template>
@@ -14,14 +14,17 @@ export default {
   ],
   data() {
     return {
-      activeKey: 12,
+      activeKey:"",
       shopingname:[]
     };
   },
   methods: {
-    onload(){
-      let newArr={}
-      this.bigbox.forEach((v,i) => {
+    async onload(){
+      console.log(
+        1
+      );
+    let newArr={}
+    await this.bigbox.forEach((v,i) => {
         console.log(v.productCategory.name);
         newArr[v.productCategory.name]= v.productCategory.name[i]
       });
@@ -30,18 +33,19 @@ export default {
         console.log(i);
         this.shopingname.push(i)
       }
-      console.log(this.shopingname);
+      // console.log(this.shopingname);
 
     },
     onChange(index) {
-      console.log(
-        index
-      );
+     console.log(index,);
     },
+    itemcliick(value){
+      this.$emit("vuelname",value)
+      console.log(value);
+    }
   },
-  created(){
-        this.onload(1)
-        
+  updated(){
+      this.onload(1)  
     }
 }
 </script>
