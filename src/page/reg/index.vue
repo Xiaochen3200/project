@@ -1,14 +1,11 @@
 <template>
   <div class="login register">
     <Header>
-      <span class="left"
-            @click="goregister"><span name='left'>
-          <van-icon name="arrow-left"
-                    size="25" />
-
-        </span></span>
+      <span class="left" @click="goregister"
+        ><span name="left">
+          <van-icon name="arrow-left" size="25" /> </span
+      ></span>
       <span class="center">京东快速注册</span>
-
     </Header>
 
     <!-- <van-uploader :after-read="afterRead"
@@ -20,48 +17,75 @@
          v-else> -->
 
     <div class="Img">
-      <img src="http://img.duoziwang.com/2018/19/07111648929270.jpg"
-           alt="">
+      <img src="http://img.duoziwang.com/2018/19/07111648929270.jpg" alt="" />
     </div>
 
     <van-form @submit="onSubmit">
-      <van-field v-model="username"
-                 name="userName"
-                 label="用户名"
-                 placeholder="请输入用户名"
-                 :rules="[{ required: true,pattern: /^[A-Za-z0-9]{6,12}$/, message: '请填写6~12个字母、数字' }]" />
-      <van-field v-model="password"
-                 type="password"
-                 name="password"
-                 label="密码"
-                 placeholder="请输入密码"
-                 :rules="[{ required: true,pattern: /^[A-Za-z0-9]{6,16}$/, message: '请填写6~16个字母、数字' }]" />
+      <van-field
+        v-model="username"
+        name="userName"
+        label="用户名"
+        placeholder="请输入用户名"
+        :rules="[
+          {
+            required: true,
+            pattern: /^[A-Za-z0-9]{6,12}$/,
+            message: '请填写6~12个字母、数字',
+          },
+        ]"
+      />
+      <van-field
+        v-model="password"
+        type="password"
+        name="password"
+        label="密码"
+        placeholder="请输入密码"
+        :rules="[
+          {
+            required: true,
+            pattern: /^[A-Za-z0-9]{6,16}$/,
+            message: '请填写6~16个字母、数字',
+          },
+        ]"
+      />
 
-      <van-field v-model="Password"
-                 type="Password"
-                 name="Password"
-                 label="确认密码"
-                 placeholder="请输入确认密码"
-                 :rules="[{ required: true,pattern: /^[A-Za-z0-9]{6,16}$/, message: '请填写6~16个字母、数字' }]" />
+      <van-field
+        v-model="Password"
+        type="Password"
+        name="Password"
+        label="确认密码"
+        placeholder="请输入确认密码"
+        :rules="[
+          {
+            required: true,
+            pattern: /^[A-Za-z0-9]{6,16}$/,
+            message: '请填写6~16个字母、数字',
+          },
+        ]"
+      />
       <div style="margin: 16px;">
-        <van-button round
-                    block
-                    type="info"
-                    native-type="submit"
-                    @click="gozhuce">快速注册</van-button>
+        <van-button
+          round
+          block
+          type="info"
+          native-type="submit"
+          @click="gozhuce"
+          >快速注册</van-button
+        >
       </div>
     </van-form>
 
     <div class="denglu">
-      <van-cell value="登录"
-                @click="gologin" />
+      <van-cell value="登录" @click="gologin" />
     </div>
 
     <div class="shll">
       <van-cell value="短信验证码登陆" />
     </div>
 
-    <van-divider :style="{ color: '#ccc', borderColor: '#ccc', padding: '0 16px' }">
+    <van-divider
+      :style="{ color: '#ccc', borderColor: '#ccc', padding: '0 16px' }"
+    >
       其他登录方式
     </van-divider>
 
@@ -76,51 +100,44 @@
         <p>苹果</p>
       </span>
     </div>
-
   </div>
 </template>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <script>
-import { reqRegister } from '../../api/user'
+import { reqRegister } from "../../api/user";
 
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
 
 export default {
   //import引入的组件需要注入到对象中才能使用
-  components: {
-
-  },
+  components: {},
   props: {},
-  data () {
+  data() {
     //这里存放数据
     return {
       username: "",
       password: "",
       imgurl: "",
       Password: "",
-      adatar: '',
+      adatar: "",
     };
-
-
   },
   //计算属性 类似于data概念
-  computed: {
-
-  },
+  computed: {},
   //监控data中的数据变化
   watch: {},
   //方法集合
   methods: {
-    afterRead (file) {
+    afterRead(file) {
       // 此时可以自行将文件上传至服务器
       console.log(file);
       this.imgurl = file.content;
     },
-    async onSubmit (values) {
-      console.log('submit', values);
+    async onSubmit(values) {
+      console.log("submit", values);
       const result = await reqRegister({ ...values, avatar: this.imgurl });
       // console.log(result);
 
@@ -128,34 +145,28 @@ export default {
         this.$router.push("/login");
       }
     },
-    goregister () {
+    goregister() {
       this.$router.push("/login");
     },
-    gologin () {
+    gologin() {
       this.$router.push("/login");
     },
-    gozhuce () {
+    gozhuce() {
       this.$router.push("/login");
     },
-
-
   },
   //生命周期 - 创建完成（可以访问当前this实例）
-  created () {
-
-  },
+  created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted () {
-
-  },
-  beforeCreate () { }, //生命周期 - 创建之前
-  beforeMount () { }, //生命周期 - 挂载之前
-  beforeUpdate () { }, //生命周期 - 更新之前
-  updated () { }, //生命周期 - 更新之后
-  beforeDestroy () { }, //生命周期 - 销毁之前
-  destroyed () { }, //生命周期 - 销毁完成
-  activated () { }, //如果页面有keep-alive缓存功能，这个函数会触发
-}
+  mounted() {},
+  beforeCreate() {}, //生命周期 - 创建之前
+  beforeMount() {}, //生命周期 - 挂载之前
+  beforeUpdate() {}, //生命周期 - 更新之前
+  updated() {}, //生命周期 - 更新之后
+  beforeDestroy() {}, //生命周期 - 销毁之前
+  destroyed() {}, //生命周期 - 销毁完成
+  activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
+};
 </script>
 <style scoped>
 .register {

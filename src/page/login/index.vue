@@ -2,8 +2,7 @@
   <div class="login">
     <Header>
       <span class="left" @click="gohome"
-        ><span name="left">
-          <van-icon name="arrow-left" size="25" /> </span
+        ><span name="left"> <van-icon name="arrow-left" size="25" /> </span
       ></span>
       <span class="center">京东登录注册</span>
     </Header>
@@ -118,11 +117,13 @@ export default {
         password: this.password,
       });
       console.log(result);
+      localStorage.setItem("username", this.username);
       // alert(1)
       if (result.data.code != "error") {
         Toast.success("登陆成功");
         setToken(result.data.token);
-        localStorage.setItem("username", this.username)
+        // localStorage.setItem("username", this.username);
+
         this.$router.push("/");
       }
     },

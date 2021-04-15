@@ -213,8 +213,12 @@ body,
 .mine #id-credit {
   position: absolute;
   width: 50%;
-  top: 23px;
+  top: 37px;
   left: 100px;
+}
+.mine #id-credit p {
+  color: #fff;
+  font-size: 25px;
 }
 /*  用户收藏足迹 */
 .mine #account-collect {
