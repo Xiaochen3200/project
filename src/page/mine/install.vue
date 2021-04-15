@@ -20,10 +20,13 @@
     <van-cell is-link title="联系客服" @click="show = true" class="bb" />
     <van-cell is-link title="切换站点" @click="show = true" />
     <!-- <van-button round type="info">圆形按钮</van-button> -->
-    <van-button type="primary" block color="red">退出登录</van-button>
+    <van-button type="primary" block color="red" @click="tuichu"
+      >退出登录</van-button
+    >
   </div>
 </template>
 <script>
+import { removeToken } from "../../api/auth";
 export default {
   name: "",
   props: {},
@@ -37,6 +40,11 @@ export default {
     onClickLeft() {
       // this.$router.go(-1);
       this.$router.push("/mine");
+    },
+    tuichu() {
+      this.$router.push("/home");
+      localStorage.removeItem("username");
+      removeToken();
     },
   },
   created() {},
