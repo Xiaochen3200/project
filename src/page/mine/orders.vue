@@ -61,7 +61,7 @@ export default {
     },
     shuju() {
       axios
-        .get("http://localhost:3009/api/v1/products", { params: { per: 180 } })
+        .get("http://localhost:3009/api/v1/products", { params: { per: 15 } })
         .then((res) => {
           // console.log(res);
           this.list = res.data.products;
