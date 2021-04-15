@@ -4,8 +4,7 @@ Vue.use(Router);
 
 const routre = new Router({
   mode: "hash",
-  routes: [
-    {
+  routes: [{
       path: "/",
       redirect: "/home",
     },

@@ -1,6 +1,10 @@
 import axios from "axios";
-import { serverURL } from "./common";
-import { getToken } from "./utils";
+import {
+  serverURL
+} from "./common";
+import {
+  getToken
+} from "./utils";
 const instance = axios.create({
   baseURL: serverURL,
   timeout: 5000, //请求超时时间
@@ -8,14 +12,14 @@ const instance = axios.create({
 
 // 请求拦截
 instance.interceptors.request.use(
-  function(config) {
+  function (config) {
     if (getToken()) {
       // 加入购物车时需要验证用户token才能添加到购物车
       config.headers.authorization = "Bearer " + getToken();
     }
     return config;
   },
-  function(error) {
+  function (error) {
     // Do something with request error
     return Promise.reject(error);
   }
@@ -35,7 +39,9 @@ instance.interceptors.request.use(
 //   }
 // );
 // 封装get请求
-export const get = (url, params) => instance.get(url, { params: params });
+export const get = (url, params) => instance.get(url, {
+  params: params
+});
 
 // 封装post请求
 export const post = (url, data) => instance.post(url, data);
