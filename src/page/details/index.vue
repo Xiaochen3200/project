@@ -111,8 +111,8 @@
 <script>
 import Navbar from "../../components/navbar/nav-bar";
 import { reqProductDetail } from "../../api/products";
-// import { reqAddCart } from "../../api/cart";
-// import { isLogined } from "../../utils/utils";
+import { reqAddCart } from "../../api/cart";
+import { isLogined } from "../../utils/utils";
 
 export default {
   components: { Navbar },
@@ -139,21 +139,21 @@ export default {
       }
     },
     // 加入购物车
-    // async onClickButton(id, quantity) {
-    //   // 判断是否登录
-    //   if (isLogined()) {
-    //     console.log(id, quantity);
-    //     // 如果登录调用购物车接口
-    //     const result = await reqAddCart(id, quantity);
-    //     console.log(result);
-    //     if (result.status === 200) {
-    //       this.$router.push("/cart");
-    //     }
-    //   } else {
-    //     // 如果没有登录,跳转到登录页登录
-    //     this.$router.replace("/login");
-    //   }
-    // },
+    async onClickButton(id, quantity) {
+      // 判断是否登录
+      if (isLogined()) {
+        console.log(id, quantity);
+        // 如果登录调用购物车接口
+        const result = await reqAddCart(id, quantity);
+        console.log(result);
+        if (result.status === 200) {
+          this.$router.push("/cart");
+        }
+      } else {
+        // 如果没有登录,跳转到登录页登录
+        this.$router.replace("/login");
+      }
+    },
   },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {
