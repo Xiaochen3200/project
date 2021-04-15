@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <van-tabbar v-model="active">
+    <van-tabbar v-model="$store.state.active">
       <van-tabbar-item icon="home-o" :to="{ name: 'Home' }"
         >首页</van-tabbar-item
       >
@@ -33,7 +33,9 @@ export default {
 
   methods: {},
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() {},
+  created() {
+    console.log(this.$store.state.active);
+  },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {},
   beforeCreate() {},

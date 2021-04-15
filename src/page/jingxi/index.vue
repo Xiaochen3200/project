@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   components: {},
   data() {
@@ -13,9 +14,13 @@ export default {
   //监控data中的数据变化
   watch: {},
 
-  methods: {},
+  methods: {
+    ...mapMutations(["changeActive"]),
+  },
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() {},
+  created() {
+    this.changeActive(2);
+  },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {},
   beforeCreate() {},

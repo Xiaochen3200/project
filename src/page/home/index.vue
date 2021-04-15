@@ -25,6 +25,7 @@ import Seckill from "../home/seckill/index";
 import Advertising from "../home/advertising/index";
 import Learn from "../home/learn/index";
 import Products from "../home/products/index";
+import { mapMutations } from "vuex";
 // 回到顶部
 import Gotop from "../../components/goTop/index";
 export default {
@@ -46,9 +47,13 @@ export default {
   //监控data中的数据变化
   watch: {},
 
-  methods: {},
+  methods: {
+    ...mapMutations(["changeActive"]),
+  },
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() {},
+  created() {
+    this.changeActive(0);
+  },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {},
   beforeCreate() {},

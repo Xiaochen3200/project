@@ -19,6 +19,7 @@ import Vant, {
   Button,
   Divider,
 } from "vant";
+import store from "./store";
 
 import Font from "../font/iconfont.css";
 
@@ -55,6 +56,7 @@ new Vue({
   render: (h) => h(App),
   router,
   Font,
+  store,
 }).$mount("#app");
 
 router.beforeEach((to, from, next) => {

@@ -109,6 +109,7 @@
 
 <script>
 import { getToken } from "../../utils/utils";
+import { mapMutations } from "vuex";
 export default {
   components: {},
   data() {
@@ -123,6 +124,7 @@ export default {
   watch: {},
 
   methods: {
+    ...mapMutations(["changeActive"]),
     onClickLeft() {
       this.$router.go(-1);
       console.log(this.$router.push());
@@ -153,6 +155,7 @@ export default {
   },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {
+    this.changeActive(4);
     getToken();
     const username = localStorage.getItem("username");
     console.log(username);
