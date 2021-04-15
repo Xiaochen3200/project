@@ -2,7 +2,7 @@
   <div class="classify" style="height:auto">
     <van-sticky>
       <nav-bar style="background:white;" >
-        <van-icon slot="left" name="arrow-left" />
+        <van-icon slot="left" name="arrow-left" @click="backclick" />
         <sear-che slot="center"></sear-che>
       </nav-bar>
     </van-sticky>
@@ -49,6 +49,9 @@ export default {
   watch: {},
 
   methods: {
+    backclick(){
+
+    },
     async reqClssfiy() {
       const result = await reqClssfiy(
         {
@@ -156,6 +159,10 @@ export default {
     color: #252525;
     background-color: #f3f5f7;
   }
-
+  .van-icon-arrow-left{
+    display: block;
+    text-align: center;
+    line-height: 44px;
+  }
 </style>
 
