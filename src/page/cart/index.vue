@@ -1,28 +1,28 @@
 <template>
-  <div class="cart">购物车</div>
+  <div class="cart">
+    <!-- 导航 -->
+    <Details></Details>
+    <!-- 地址 -->
+    <!-- 购物车 -->
+    <Goback/> 
+  </div>
 </template>
 
 <script>
+import Details from "../cart/details";
+import Goback from "../cart/goback";
 export default {
-  components: {},
+  components: { Details, Goback },
+  name: "Cart",
   data() {
     return {};
   },
-  //监听属性 类似于data概念
-  computed: {},
-  //监控data中的数据变化
-  watch: {},
-
-  methods: {},
-  //生命周期 - 创建完成（可以访问当前this实例）
   created() {},
-  //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {},
-  beforeCreate() {},
-  beforeMount() {},
-  beforeUpdate() {},
-  updated() {},
-  //如果页面有keep-alive缓存功能，这个函数会触发
 };
 </script>
-<style scoped></style>
+<style >
+ html body{
+  background: #f2f2f2;
+}
+</style>
