@@ -106,7 +106,7 @@ export default {
     async onSubmit (values) {
       console.log('submit', values);
       const result = await reqLogin({ userName: this.username, password: this.password });
-      console.log(result, 11111111);
+      console.log(result);
       // alert(1)
       if (result.data.code != "error") {
         Toast.success('登陆成功');
