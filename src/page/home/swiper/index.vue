@@ -47,7 +47,7 @@ export default {
 <style scoped>
 .swiper {
   width: 100%;
-  height: 60px;
+  height: 200px;
   background: #ccc;
   border-radius: 10px;
 }

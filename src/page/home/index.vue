@@ -1,17 +1,34 @@
 <template>
   <div class="home">
     <Firstearch></Firstearch>
+    <!-- 轮播图 -->
     <Swiper></Swiper>
+    <!-- 广告 -->
+    <Advertising></Advertising>
+    <!-- 商品分类 -->
+    <Productclassify></Productclassify>
+    <!-- 京东秒杀 -->
+    <Seckill></Seckill>
+    <!-- 潮流音乐 -->
+    <Learn></Learn>
   </div>
 </template>
 
 <script>
 import Firstearch from "../home/search/firstsearch";
 import Swiper from "../home/swiper/index";
+import Productclassify from "../home/productclassify/index";
+import Seckill from "../home/seckill/index";
+import Advertising from "../home/advertising/index";
+import Learn from "../home/learn/index";
 export default {
   components: {
     Firstearch,
     Swiper,
+    Advertising,
+    Productclassify,
+    Seckill,
+    Learn,
   },
   data() {
     return {};
