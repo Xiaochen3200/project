@@ -14,7 +14,6 @@
       :list="list"
       default-tag-text="默认"
       @add="onAdd"
-      @edit="onEdit"
     />
   </div>
 </template>

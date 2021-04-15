@@ -21,8 +21,12 @@ export default {
     onChange(index) {
      console.log(index);
     },
+    mrcliick(){
+      
+    },
     itemcliick(value){
       this.$emit("vuelname",value)
+      console.log(value);
     }
   },
 }

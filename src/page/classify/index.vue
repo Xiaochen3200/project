@@ -1,5 +1,5 @@
 <template>
-  <div class="classify">
+  <div class="classify" style="height:auto">
     <van-sticky>
       <nav-bar style="background:white;">
         <van-icon slot="left" name="arrow-left" />
@@ -51,6 +51,7 @@ export default {
       shopingfenlei: [],
       per: 500,
       itemname: "",
+      styleheight: "",
     };
   },
   //监听属性 类似于data概念
@@ -72,6 +73,14 @@ export default {
         this.shopingname.push(i);
       }
       this.shoping = result.data.products;
+      let newname = [];
+      this.shoping.forEach((v) => {
+        // console.log(v.productCategory.name,i);
+        if (v.productCategory.name == "口红") {
+          newname.push(v);
+        }
+      });
+      this.shopingfenlei = newname;
     },
     sideclick(value) {
       console.log("点击了" + value);

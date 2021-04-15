@@ -14,10 +14,14 @@
 <script>
 export default {
   name:"GrideItem",
-  props:[
-    "bigbox",
-    "itemname"
-  ],
+  props:{
+    bigbox:{
+      type:Array,
+    },
+    itemname:{
+
+    }
+  },
   data(){
     return{
       img:[],
@@ -25,6 +29,16 @@ export default {
     }
   },
   methods:{
+    onload(){
+      if(this.bigox===""){
+        console.log(this.bigbox,1);
+      }else{
+        console.log(this.bigbox,2);
+      }
+    }
+  },
+  created(){
+    this.onload()
   },
 }
 </script>
